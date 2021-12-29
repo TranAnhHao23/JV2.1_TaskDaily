@@ -21,15 +21,14 @@ public class Student extends Human implements Serializable {
         this.averageMark = averageMark;
     }
 
-    public String display() {
-        String range;
-        if (this.averageMark > 8){
-            range = "Good";
-        } else if (this.averageMark >6){
-            range = "Fairly";
-        } else {
-            range = "Avegare";
-        }
-        return "Student: Name: "+ this.getName() + " - AverageMark: " + this.averageMark + ", Range: "+ range;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + super.getName() + '\'' +
+                ", age=" + super.getAge() +
+                ", gender='" + super.getGender() + '\'' +
+                ", address='" + super.getAddress() + '\'' +
+                ", averageMark='" + averageMark + '\'' +
+                '}';
     }
 }
