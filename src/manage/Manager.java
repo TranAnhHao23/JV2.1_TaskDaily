@@ -20,24 +20,24 @@ public class Manager {
         System.out.println("Student Information");
         System.out.print("Name: ");
         String name = sc.nextLine();
-
-        int age = 0;
+        System.out.print("Age: ");
+        int age = sc.nextInt();
         try {
-            System.out.print("Age: ");
-            age = sc.nextInt();
             checkAge(age);
         } catch (checkAgeException e) {
-            System.err.println(e.getMessage());
+            System.err.print(e.getMessage());
         }
-        System.out.print("Gender: ");
         sc.nextLine();
+        System.out.print("Gender (Male/Female/Other): ");
+
         String gender = sc.nextLine();
-        String regexName = "^(Male|Female|Other)$";
+        String regexName = "(Male|Female|Other)$";
         Pattern pattern = Pattern.compile(regexName);
         Matcher matcher = pattern.matcher(gender);
         while (!matcher.find()) {
             if (!matcher.find()) {
                 System.out.println("không đúng yêu cầu!");
+                System.out.println("Nhập lại");
             }
             gender = sc.nextLine();
         }
